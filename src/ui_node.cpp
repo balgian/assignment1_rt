@@ -12,7 +12,7 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "distance_node");
+  ros::init(argc, argv, "ui_node");
   ros::NodeHandle nh;
   // Spawn the second turtle
   ros::ServiceClient client = nh.serviceClient<turtlesim::Spawn>("/spawn");
@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
 
     char robot = choice == 1 ? '1' : '2';
     string turtle_topic = "/turtle" + string(1, robot) + "/cmd_vel";
-
+    
     ros::Publisher pub = nh.advertise<geometry_msgs::Twist>(turtle_topic, 10);
     do{
       cout << "Select a command to send (write 1, 2, 3 or 4):" << endl;
