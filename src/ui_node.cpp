@@ -65,6 +65,9 @@ int main(int argc, char **argv) {
     pub.publish(my_vel);
     //Wait one secodn before to ask again
     sleep(1);
+    my_vel.linear.x = 0;
+    my_vel.linear.y = 0;
+    pub.publish(my_vel);
     ros::spinOnce();
     char c;
     cout << "Do you want to continue? (y/n)" << endl;
