@@ -72,12 +72,16 @@ int main(int argc, char **argv) {
     char c;
     cout << "Do you want to continue? (y/n)" << endl;
     cin >> c;
-    if (c != 'y' && c != 'Y') {
+    do {
+      cout << "Do you want to continue? (y/n)" << endl;
+      cin >> c;
+      c = tolower(c);
+    } while (c != 'y' && c != 'n');
+    if (c == 'n') {
       break;
     }
   }
   return 0;
 }
-
 
 

@@ -9,7 +9,6 @@ project(assignment1_rt)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
         roscpp
-        rospy
         geometry_msgs
         turtlesim
 )

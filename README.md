@@ -42,6 +42,7 @@ The `distance_node` and `ui_node` executables must be run in separate terminals.
 
 - ROS (Robot Operating System)
 - ROS packages:
-	- `turtlesim`
-	- `geometry_msgs`
-	- `std_srvs`
+  - `roscpp`
+  - `turtlesim`
+  - `geometry_msgs`
+  - `std_srvs`
