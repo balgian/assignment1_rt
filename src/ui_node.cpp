@@ -70,8 +70,6 @@ int main(int argc, char **argv) {
     pub.publish(my_vel);
     ros::spinOnce();
     char c;
-    cout << "Do you want to continue? (y/n)" << endl;
-    cin >> c;
     do {
       cout << "Do you want to continue? (y/n)" << endl;
       cin >> c;
