@@ -3,6 +3,7 @@
 //
 #include <ros/ros.h>
 #include <turtlesim/Pose.h>
+#include <std_msgs/Float32.h>
 #include <geometry_msgs/Twist.h>
 
 ros::Subscriber sub1_pose, sub1_vel;
@@ -13,6 +14,7 @@ turtlesim::Pose pose1;
 turtlesim::Pose pose2;
 geometry_msgs::Twist vel1;
 geometry_msgs::Twist vel2;
+ros::Publisher distance_pub;
 
 void poseCallback1(const turtlesim::Pose::ConstPtr& msg) {
     pose1 = *msg;
@@ -33,6 +35,10 @@ void velCallback2(const geometry_msgs::Twist::ConstPtr& msg) {
 void controlLoop() {
     geometry_msgs::Twist vel;
     float distance = sqrt(pow(pose1.x - pose2.x, 2) + pow(pose1.y - pose2.y, 2));
+
+    std_msgs::Float32 distance_msg;
+    distance_msg.data = distance;
+    distance_pub.publish(distance_msg);
 
     if (distance < 2) {
         vel.linear.x = (vel1.linear.x == 0 ? 0 : vel1.linear.x > 0 ? -2.5 : 2.5);
@@ -79,6 +85,7 @@ int main(int argc, char **argv) {
     sub2_vel = nh.subscribe("/turtle2/cmd_vel", 10, velCallback2);
     pub1_vel = nh.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 10);
     pub2_vel = nh.advertise<geometry_msgs::Twist>("/turtle2/cmd_vel", 10);
+    distance_pub = nh.advertise<std_msgs::Float32>("/distance", 10);
 
     ros::Rate loop_rate(10);
 
