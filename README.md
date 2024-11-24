@@ -6,7 +6,7 @@ This project consists of two ROS nodes: `distance_node` and `ui_node`. These nod
 
 ## Node 1: `distance_node`
 
-The distance_node is responsible for controlling the movement of two turtles in the turtlesim simulator. It uses the `geometry_msgs/Twist message` type to send *velocity commands* to the turtles.
+The distance_node is responsible for controlling the movement of two turtles in the turtlesim simulator. It uses the `geometry_msgs/Twist` message type to send *velocity commands* to the turtles.
 
 ### Key Features
 
