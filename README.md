@@ -12,8 +12,9 @@ The distance_node is responsible for controlling the movement of two turtles in 
 
 1. Subscribes to the `/turtle1/pose` and `/turtle2/pose` topics to receive the *current position* of the turtles;
 2. Subscribes to the `/turtle1/cmd_vel` and `/turtle2/cmd_vel` topics to receive *velocity commands* for the turtles;
-3. Publishes *velocity commands* to the `/turtle1/cmd_vel` and `/turtle2/cmd_vel` topics to control the movement of the turtles;
-4. Uses the `controlLoop` function to implement a simple control algorithm that keeps the turtles at a safe distance from each other.
+3. Publishes the *distance between the two turtles* to the `/distance` topic
+4. Publishes *velocity commands* to the `/turtle1/cmd_vel` and `/turtle2/cmd_vel` topics to control the movement of the turtles;
+5. Uses the `controlLoop` function to implement a simple control algorithm that keeps the turtles at a safe distance from each other.
 
 ## Node 2: `ui_node`
 
