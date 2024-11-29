@@ -40,6 +40,8 @@ void controlLoop() {
     distance_msg.data = distance;
     distance_pub.publish(distance_msg);
 
+    ROS_INFO("Distance between turtles: %f", distance);
+
     if (distance < 2) {
         vel.linear.x = (vel1.linear.x == 0 ? 0 : vel1.linear.x > 0 ? -2.5 : 2.5);
         vel.linear.y = (vel1.linear.y == 0 ? 0 : vel1.linear.y > 0 ? -2.5 : 2.5);
